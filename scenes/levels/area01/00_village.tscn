@@ -42,7 +42,7 @@ visible = false
 layer_0/tile_data = PackedInt32Array(655379, 0, 65536, 655388, 0, 65536, 1048614, 0, 65536, 1310759, 0, 65536, 1114122, 0, 65536, 917517, 0, 65536, 458762, 0, 65536, 524322, 0, 65536, 786451, 0, 65536, 1441819, 1, 65536)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_0deec")]
-position = Vector2(722, 269)
+position = Vector2(723, 248)
 
 [node name="LevelTransition_East" parent="." instance=ExtResource("6_icaqk")]
 position = Vector2(896, 257)
