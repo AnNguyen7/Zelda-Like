@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c12b7gd0r31v"]
+
+[ext_resource type="Script" path="res://scenes/items/scripts/items_data.gd" id="1_x24ld"]
+[ext_resource type="Texture2D" uid="uid://d0cb1vmwiulwp" path="res://scenes/items/sprites/TeaLeaf.png" id="2_3b8eo"]
+
+[resource]
+script = ExtResource("1_x24ld")
+name = "Tea Leaf"
+description = "A leaf for brewing calming tea."
+texture = ExtResource("2_3b8eo")
+effects = Array[Resource("res://scenes/items/item_effects/item_effect.gd")]([])

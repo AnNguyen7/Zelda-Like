@@ -1,0 +1,252 @@
+[gd_scene load_steps=25 format=3 uid="uid://ylveu6n0d5tf"]
+
+[ext_resource type="Texture2D" uid="uid://dptopmiaje8ua" path="res://scenes/bosses/bee/bee.png" id="1_0clws"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/bee_boss.gd" id="1_m5gnx"]
+[ext_resource type="Resource" uid="uid://b5pgj36fwf2go" path="res://scenes/items/honey.tres" id="2_qd441"]
+[ext_resource type="Script" path="res://scenes/enemies/00_scripts/drop_data.gd" id="3_3oua4"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/BeeStateMachine.gd" id="3_acm4q"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/bee_state_idle.gd" id="4_ol05i"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/bee_state_shoot.gd" id="5_56cp4"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/bee_state_follow.gd" id="6_jxkwc"]
+[ext_resource type="PackedScene" uid="uid://bspwm1rfawv4r" path="res://scenes/bosses/bee/bullet.tscn" id="6_pf43x"]
+[ext_resource type="AudioStream" uid="uid://cgjmaw7eq7762" path="res://scenes/bosses/bee/bees-d29400.mp3" id="7_ga7qg"]
+[ext_resource type="PackedScene" uid="uid://bnyuy2em05cs3" path="res://scenes/general components/hitbox/HitBox.tscn" id="9_3txrv"]
+[ext_resource type="Script" path="res://scenes/bosses/bee/scripts/bee_state_dash.gd" id="9_moin4"]
+[ext_resource type="AudioStream" uid="uid://bgu648amdtv4m" path="res://scenes/bosses/bee/beesdash-29400.mp3" id="10_m7e2f"]
+
+[sub_resource type="Resource" id="Resource_4dh6k"]
+script = ExtResource("3_3oua4")
+item = ExtResource("2_qd441")
+probability = 100.0
+min_amount = 1
+max_amount = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f115v"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_6b8hc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ukfja"]
+resource_name = "dead"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_37fdo"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbawo"]
+_data = {
+"RESET": SubResource("Animation_6b8hc"),
+"dead": SubResource("Animation_ukfja"),
+"idle": SubResource("Animation_37fdo")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_60kt2"]
+font_size = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwrmg"]
+radius = 9.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbn4w"]
+bg_color = Color(0.184314, 0.176471, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4es35"]
+bg_color = Color(0.956863, 0.45098, 0.113725, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.184314, 0.176471, 0.0352941, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0caca"]
+radius = 125.0
+
+[node name="BeeBoss" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 16
+script = ExtResource("1_m5gnx")
+drops = Array[ExtResource("3_3oua4")]([SubResource("Resource_4dh6k")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0clws")
+hframes = 6
+vframes = 4
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_f115v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cbawo")
+}
+autoplay = "idle"
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -29.0
+offset_right = 11.0
+offset_bottom = -15.0
+text = "test"
+label_settings = SubResource("LabelSettings_60kt2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 257
+
+[node name="BeeStateMachine" type="Node2D" parent="."]
+script = ExtResource("3_acm4q")
+
+[node name="Idle" type="Node2D" parent="BeeStateMachine"]
+script = ExtResource("4_ol05i")
+
+[node name="Shoot" type="Node2D" parent="BeeStateMachine"]
+script = ExtResource("5_56cp4")
+bullet_scene = ExtResource("6_pf43x")
+
+[node name="ShootSfx" type="AudioStreamPlayer2D" parent="BeeStateMachine/Shoot"]
+stream = ExtResource("7_ga7qg")
+volume_db = 8.0
+pitch_scale = 1.2
+
+[node name="Timer" type="Timer" parent="BeeStateMachine/Shoot"]
+wait_time = 1.5
+
+[node name="Follow" type="Node2D" parent="BeeStateMachine"]
+script = ExtResource("6_jxkwc")
+
+[node name="Dash" type="Node2D" parent="BeeStateMachine"]
+script = ExtResource("9_moin4")
+
+[node name="DashSfx" type="AudioStreamPlayer2D" parent="BeeStateMachine/Dash"]
+stream = ExtResource("10_m7e2f")
+volume_db = 10.0
+pitch_scale = 1.2
+
+[node name="Timer" type="Timer" parent="BeeStateMachine/Dash"]
+wait_time = 1.25
+
+[node name="HitBox" parent="." instance=ExtResource("9_3txrv")]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_bwrmg")
+debug_color = Color(0.847059, 0.101961, 0.282353, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(32, 5)
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rbn4w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4es35")
+max_value = 6.0
+step = 1.0
+value = 6.0
+show_percentage = false
+
+[node name="DetectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectArea"]
+shape = SubResource("CircleShape2D_0caca")
+
+[connection signal="timeout" from="BeeStateMachine/Shoot/Timer" to="BeeStateMachine/Shoot" method="_on_timer_timeout"]
+[connection signal="timeout" from="BeeStateMachine/Dash/Timer" to="BeeStateMachine/Dash" method="_on_timer_timeout"]

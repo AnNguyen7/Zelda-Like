@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://421ienlm1gtu"]
+
+[ext_resource type="Texture2D" uid="uid://nwjc00ik6smk" path="res://scenes/lights/circle.png" id="1_og4j1"]
+
+[node name="Light" type="PointLight2D"]
+color = Color(1, 0.741176, 0.329412, 1)
+energy = 1.5
+texture = ExtResource("1_og4j1")
+texture_scale = 0.2

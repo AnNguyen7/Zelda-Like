@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c12fgqnyhm6xl"]
+
+[node name="Npc" type="CharacterBody2D"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://rsd8qy1soyo6"]
+
+[ext_resource type="PackedScene" uid="uid://421ienlm1gtu" path="res://scenes/lights/light.tscn" id="1_nuxdh"]
+[ext_resource type="PackedScene" uid="uid://goyhm5f763bb" path="res://scenes/lights/light_blue.tscn" id="2_btrn3"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xsidu"]
+resource_name = "light"
+scenes/1/scene = ExtResource("1_nuxdh")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5h6p8"]
+resource_name = "light_blue"
+scenes/1/scene = ExtResource("2_btrn3")
+
+[sub_resource type="TileSet" id="TileSet_0t6sx"]
+sources/0 = SubResource("TileSetScenesCollectionSource_xsidu")
+sources/1 = SubResource("TileSetScenesCollectionSource_5h6p8")
+
+[node name="LightTilemap" type="TileMap"]
+tile_set = SubResource("TileSet_0t6sx")
+format = 2

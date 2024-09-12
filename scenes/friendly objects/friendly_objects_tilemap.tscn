@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://blf38b75drbtu"]
+
+[ext_resource type="PackedScene" uid="uid://wgi0bvao7rjo" path="res://scenes/friendly objects/plant/Plant.tscn" id="1_eme7w"]
+[ext_resource type="PackedScene" uid="uid://gcy0t5mk8iby" path="res://scenes/friendly objects/dog/dog.tscn" id="2_dynp1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_kd3fd"]
+resource_name = "plant"
+scenes/1/scene = ExtResource("1_eme7w")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wgi8b"]
+resource_name = "dog"
+scenes/1/scene = ExtResource("2_dynp1")
+
+[sub_resource type="TileSet" id="TileSet_lq6c7"]
+sources/0 = SubResource("TileSetScenesCollectionSource_kd3fd")
+sources/1 = SubResource("TileSetScenesCollectionSource_wgi8b")
+
+[node name="FriendlyObjectsTilemap" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_lq6c7")
+format = 2
+layer_0/name = "plant"
+layer_1/name = "dog"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://goyhm5f763bb"]
+
+[ext_resource type="Texture2D" uid="uid://nwjc00ik6smk" path="res://scenes/lights/circle.png" id="1_c5mbc"]
+
+[node name="LightBlue" type="PointLight2D"]
+color = Color(0, 0.780392, 0.960784, 1)
+energy = 1.5
+texture = ExtResource("1_c5mbc")
+texture_scale = 0.3

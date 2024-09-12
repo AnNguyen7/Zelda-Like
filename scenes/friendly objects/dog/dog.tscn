@@ -1,0 +1,184 @@
+[gd_scene load_steps=15 format=3 uid="uid://gcy0t5mk8iby"]
+
+[ext_resource type="Script" path="res://scenes/friendly objects/dog/dog.gd" id="1_82bif"]
+[ext_resource type="Texture2D" uid="uid://dgm4wcuscpps1" path="res://scenes/friendly objects/dog/Dog1.png" id="2_38vea"]
+[ext_resource type="Resource" uid="uid://0j5ehxipbmdi" path="res://scenes/items/beef.tres" id="2_l0aw1"]
+[ext_resource type="PackedScene" uid="uid://bnyuy2em05cs3" path="res://scenes/general components/hitbox/HitBox.tscn" id="2_vhfth"]
+[ext_resource type="Script" path="res://scenes/enemies/00_scripts/drop_data.gd" id="3_5dpam"]
+[ext_resource type="Texture2D" uid="uid://btwrp4m63cc7h" path="res://scenes/friendly objects/dog/Dog2.png" id="3_bhusd"]
+[ext_resource type="AudioStream" uid="uid://tahdfro54m15" path="res://assets/audio/sfx/DogWolf Hurt12.mp3" id="5_klm2x"]
+
+[sub_resource type="Resource" id="Resource_4qrkq"]
+script = ExtResource("3_5dpam")
+item = ExtResource("2_l0aw1")
+probability = 50.0
+min_amount = 1
+max_amount = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3kbq"]
+size = Vector2(12.5, 12.25)
+
+[sub_resource type="Animation" id="Animation_i35xk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rp2oj"]
+resource_name = "queue_free"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_meo6r"]
+resource_name = "queue_free_2"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tb6d7"]
+_data = {
+"RESET": SubResource("Animation_i35xk"),
+"queue_free": SubResource("Animation_rp2oj"),
+"queue_free_2": SubResource("Animation_meo6r")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y40o2"]
+radius = 3.0
+height = 12.0
+
+[node name="Dog" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 256
+script = ExtResource("1_82bif")
+drops = Array[ExtResource("3_5dpam")]([SubResource("Resource_4qrkq")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_38vea")
+offset = Vector2(2.08165e-12, 6)
+hframes = 2
+region_rect = Rect2(0, 160, 160, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_bhusd")
+offset = Vector2(2.08165e-12, 6)
+hframes = 2
+region_rect = Rect2(0, 160, 160, 32)
+
+[node name="HitBox" parent="." instance=ExtResource("2_vhfth")]
+position = Vector2(0, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.25, -5.875)
+shape = SubResource("RectangleShape2D_x3kbq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tb6d7")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_klm2x")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_y40o2")

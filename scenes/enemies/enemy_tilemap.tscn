@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://kn31chfbntku"]
+
+[ext_resource type="PackedScene" uid="uid://cqt5d8v8lau0a" path="res://scenes/enemies/slime/slime.tscn" id="1_i4ip1"]
+[ext_resource type="PackedScene" uid="uid://cfwjbndr7rqnn" path="res://scenes/enemies/snake/snake.tscn" id="2_iliim"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wmhxa"]
+resource_name = "slime"
+scenes/1/scene = ExtResource("1_i4ip1")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2wrmt"]
+resource_name = "snake"
+scenes/1/scene = ExtResource("2_iliim")
+
+[sub_resource type="TileSet" id="TileSet_cpqbj"]
+sources/0 = SubResource("TileSetScenesCollectionSource_wmhxa")
+sources/1 = SubResource("TileSetScenesCollectionSource_2wrmt")
+
+[node name="EnemyTilemap" type="TileMap"]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_cpqbj")
+format = 2
+layer_0/name = "slime"
+layer_0/y_sort_enabled = true
+layer_0/z_index = 1

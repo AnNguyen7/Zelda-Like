@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b533pcxctux2q"]
+
+[ext_resource type="Script" path="res://scenes/items/scripts/items_data.gd" id="1_eniuj"]
+[ext_resource type="Texture2D" uid="uid://re32oqcr0lm3" path="res://scenes/items/sprites/SeedBig1.png" id="2_ldbjl"]
+
+[resource]
+script = ExtResource("1_eniuj")
+name = "Seed"
+description = "A strange seed."
+texture = ExtResource("2_ldbjl")
+effects = Array[Resource("res://scenes/items/item_effects/item_effect.gd")]([])

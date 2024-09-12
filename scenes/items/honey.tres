@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://b5pgj36fwf2go"]
+
+[ext_resource type="Script" path="res://scenes/items/scripts/items_data.gd" id="1_2a706"]
+[ext_resource type="Script" path="res://scenes/items/item_effects/item_effect_heal.gd" id="1_vco10"]
+[ext_resource type="AudioStream" uid="uid://difj1hbyiq8gc" path="res://scenes/items/item_effects/hp-up.wav" id="2_s0nrd"]
+[ext_resource type="Texture2D" uid="uid://c7evtde2ucxya" path="res://scenes/items/sprites/Honey.png" id="2_w0spg"]
+
+[sub_resource type="Resource" id="Resource_3n8ii"]
+script = ExtResource("1_vco10")
+heal_amount = 1
+audio = ExtResource("2_s0nrd")
+item_description = ""
+
+[resource]
+script = ExtResource("1_2a706")
+name = "Honey"
+description = "Nature's sweet, golden nectar crafted by bees."
+texture = ExtResource("2_w0spg")
+effects = Array[Resource("res://scenes/items/item_effects/item_effect.gd")]([SubResource("Resource_3n8ii")])

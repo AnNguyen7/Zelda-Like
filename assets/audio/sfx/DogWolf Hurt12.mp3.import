@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tahdfro54m15"
+path="res://.godot/imported/DogWolf Hurt12.mp3-14aec6710e7164917319c39ced6440e9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/DogWolf Hurt12.mp3"
+dest_files=["res://.godot/imported/DogWolf Hurt12.mp3-14aec6710e7164917319c39ced6440e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://4wqoda55oo2e"]
+
+[ext_resource type="Script" path="res://scenes/items/item_effects/item_effect_heal.gd" id="1_356yo"]
+[ext_resource type="AudioStream" uid="uid://difj1hbyiq8gc" path="res://scenes/items/item_effects/hp-up.wav" id="1_lm5po"]
+[ext_resource type="Script" path="res://scenes/items/scripts/items_data.gd" id="1_oqfw8"]
+[ext_resource type="Texture2D" uid="uid://bwli827luxeqe" path="res://scenes/items/sprites/LifePot.png" id="2_j1igf"]
+
+[sub_resource type="Resource" id="Resource_w7pg3"]
+script = ExtResource("1_356yo")
+heal_amount = 2
+audio = ExtResource("1_lm5po")
+item_description = ""
+
+[resource]
+script = ExtResource("1_oqfw8")
+name = "Potion"
+description = "Heal heal heal."
+texture = ExtResource("2_j1igf")
+effects = Array[Resource("res://scenes/items/item_effects/item_effect.gd")]([SubResource("Resource_w7pg3")])

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://cnt85x80d2ene"]
+
+[ext_resource type="AudioStream" uid="uid://difj1hbyiq8gc" path="res://scenes/items/item_effects/hp-up.wav" id="1_apj7j"]
+[ext_resource type="Script" path="res://scenes/items/item_effects/item_effect_heal.gd" id="1_cngep"]
+[ext_resource type="Script" path="res://scenes/items/scripts/items_data.gd" id="1_sdpqg"]
+[ext_resource type="Texture2D" uid="uid://c64nnlf72300f" path="res://scenes/items/sprites/Shrimp.png" id="2_2s1hr"]
+
+[sub_resource type="Resource" id="Resource_lf0bn"]
+script = ExtResource("1_cngep")
+heal_amount = 1
+audio = ExtResource("1_apj7j")
+item_description = ""
+
+[resource]
+script = ExtResource("1_sdpqg")
+name = "Shrimp"
+description = "yummy"
+texture = ExtResource("2_2s1hr")
+effects = Array[Resource("res://scenes/items/item_effects/item_effect.gd")]([SubResource("Resource_lf0bn"), null])

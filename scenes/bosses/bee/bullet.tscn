@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bspwm1rfawv4r"]
+
+[ext_resource type="Script" path="res://scenes/bosses/bee/bullet.gd" id="1_hd8tx"]
+[ext_resource type="PackedScene" uid="uid://c6o66kpe4bwoa" path="res://scenes/general components/hurtbox/HurtBox.tscn" id="2_nim5c"]
+[ext_resource type="Texture2D" uid="uid://n3xnflk6h6rv" path="res://scenes/bosses/bee/CanonBall.png" id="2_vdohm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiaeu"]
+radius = 4.0
+
+[node name="Bullet" type="Area2D"]
+z_index = 2
+collision_layer = 0
+collision_mask = 258
+script = ExtResource("1_hd8tx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vdohm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="HurtBox" parent="." instance=ExtResource("2_nim5c")]
+collision_mask = 258
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_qiaeu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

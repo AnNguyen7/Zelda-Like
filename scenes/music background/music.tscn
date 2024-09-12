@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://mtpn6wy5lg7c"]
+
+[ext_resource type="AudioStream" uid="uid://l68fywqdmhyj" path="res://assets/audio/music/atbe3.mp3" id="1_jqm71"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_jqm71")
+pitch_scale = 0.93
+autoplay = true
+max_distance = 4000.0
+bus = &"music"

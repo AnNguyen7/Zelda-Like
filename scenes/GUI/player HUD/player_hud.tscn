@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhihj5c6g8tt"]
+
+[ext_resource type="Script" path="res://scenes/GUI/player HUD/player_hud.gd" id="1_8d66s"]
+[ext_resource type="PackedScene" uid="uid://bvrvghlfwgbw" path="res://scenes/GUI/player HUD/heart_gui.tscn" id="1_bgil4"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_8d66s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 0
+offset_right = 198.0
+offset_bottom = 39.0
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 19
+
+[node name="HeartGUI" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI2" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI3" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI4" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI5" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI6" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI7" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI8" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI9" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI10" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI11" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI12" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI13" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI14" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI15" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI16" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI17" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI18" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI19" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
+
+[node name="HeartGUI20" parent="Control/HFlowContainer" instance=ExtResource("1_bgil4")]
+layout_mode = 2
