@@ -1,9 +1,15 @@
-Implement a basic dungeon system.
-Add collectible items (e.g., health potions or keys for puzzles).
-Add music and sound effects.
+# Zelda-Like Game 🎮
 
+A 2D action-adventure game inspired by classic Zelda. Explore a world filled with puzzles, enemies.
 
-How to Run:
-Clone this repository.
-Open the project in Godot Engine.
-Run the project by pressing the Play button
+## Features 🚀
+
+### Combat System ⚔️
+- **Sword Combos**: Perform melee attacks with a sword combo system.
+
+### Built With 🛠️
+- **Engine**: [Godot Engine](https://godotengine.org/)
+- **Language**: GDScript
+
+### Play on 👾
+- https://anng9.itch.io/the-lengend-of-green
