@@ -1,5 +1,7 @@
 # Zelda-Like Game 🎮
 
+![image](https://github.com/user-attachments/assets/ad3ccbdb-9eb7-465e-8f3d-3f0054894df8)
+
 A 2D action-adventure game inspired by classic Zelda. Explore a world filled with puzzles, enemies.
 
 ## Features 🚀
